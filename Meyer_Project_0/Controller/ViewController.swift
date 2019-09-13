@@ -30,7 +30,19 @@ class ViewController: UIViewController {
         playerDieRollLabel?.text = String(app.model.playerNumber)
         computerDieRollLabel?.text = String(app.model.computerNumber)
         
+        var resultString = ""
+        if (app.model.playerNumber > app.model.computerNumber) {
+            resultString = "Congratulations! You won!"
+        }
+        else if (app.model.playerNumber < app.model.computerNumber) {
+            resultString = "Too bad! You lost!"
+        }
+        else {
+            resultString = "Draw!"
+        }
+        winOrLossMessageLabel?.text = resultString
     }
+    
     
     @IBAction func changeDieSize(sender: UIStepper) {
         let app = UIApplication.shared.delegate as! AppDelegate
